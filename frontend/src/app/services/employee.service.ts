@@ -10,10 +10,9 @@ export class EmployeeService {
   selectedEmployee: Employee;
   employees: Employee[];
   readonly URL_API = 'http://localhost:3000/api/employees';
-  http: any;
 
-  constructor(private htpp: HttpClient) { 
-    //this.selectedEmployee = new Employee(); //EM DONA ERROR!!
+  constructor(private http: HttpClient) { 
+    this.selectedEmployee = new Employee();
   }
 
   getEmployees() {
@@ -21,7 +20,7 @@ export class EmployeeService {
   }
 
   postEmployee(Employee: Employee){
-    return this.htpp.post(this.URL_API, Employee);
+    return this.http.post(this.URL_API, Employee);
   }
 
   putEmployee(employee: Employee){
